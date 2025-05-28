@@ -1,5 +1,6 @@
 # Simple-Travel-Website
 2nd Year 2nd Semester project for PHP CLASS. FEEL free to use my project
+TO SEE WITH pictures please download the entire RAR file
 
 WHAT'S INSIDE:
 - HTML, CSS AND PHP CODES with sql for the database
