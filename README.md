@@ -4,6 +4,7 @@ TO SEE WITH pictures please download the entire RAR file
 
 WHAT'S INSIDE:
 - HTML, CSS AND PHP CODES with sql for the database
+- CSS is inside the HTML files
 - Travel website with LOGIN, SIGNUP, HOME, DESTINATIONS, TRIP PLANNER, TRAVEL LOG, PROFILE PAGE
 - It can run on Visual Studios and in XAMPP
 - It has a database for login and trip planner
