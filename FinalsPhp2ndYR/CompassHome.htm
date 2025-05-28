@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script language="JavaScript">
+    <!--
+    function MM_preloadImages() { //v3.0
+      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+        var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+        if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+
+    function MM_swapImgRestore() { //v3.0
+      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+
+    function MM_findObj(n, d) { //v4.0
+      var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+      if(!x && document.getElementById) x=document.getElementById(n); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+       if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+    //-->
+    </script>
+    <style>
+        /* =========================
+   GENERAL STYLES
+   ========================= */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* =========================
+   TOP INFO BAR (Contact & DateTime)
+   ========================= */
+.topinfo {
+    background: #ffd700;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+    font-size: 0.9rem;
+    color: #000000;
+    padding: 10px 0;
+    font-weight: 700;
+}
+.datetime-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.topinfo-text {
+    color: #000000;
+    font-size: 1.0rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* =========================
+   NAVIGATION BAR
+   ========================= */
+.navbar-bg {
+    background: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 31px; /* Adjust for topinfo */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.logo-container img {
+    height: 35px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.logo-container img:hover {
+    transform: scale(1.05);
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+nav a::after {
+    display: none;
+}
+nav a:focus {
+    outline: none;
+}
+nav a:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+.nav-right a:not(:last-child)::after {
+    display: none;
+}
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+/* Responsive Navigation */
+@media (max-width: 900px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    nav {
+        padding: 0 1rem;
+    }
+    .nav-right {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000000;
+        padding: 1rem 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .nav-right.active {
+        display: flex;
+    }
+    .hero-section {
+        margin-top: 80px;
+    }
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero-section {
+    width: 100%;
+    height: 60vh;
+    min-height: 350px;
+    max-height: 600px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin-bottom: 32px;
+    margin-top: 96px;
+}
+.hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    max-height: 600px;
+    object-fit: cover;
+    display: block;
+}
+.hero-caption-smalltxt {
+    position: absolute;
+    font-weight: 500;
+    left: 18%;
+    top: 33%;
+    transform: translate(-50%, -50%);
+    color: #000;
+}
+.hero-caption {
+    position: absolute;
+    left: 28%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    padding: 32px 48px;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    font-weight: bolder;
+    text-align: left;
+    letter-spacing: 1px;
+    opacity: 0.97;
+}
+.hero-button {
+    position: absolute;
+    left: 8%;
+    top: 67%;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: #ffd700;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.hero-button:hover {
+    background: #f1cd01;
+}
+.hero-button > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.hero-button:hover > svg {
+    transform: translateX(5px);
+}
+.hero-button:active{
+    transform: scale(0.95);
+}
+/* Responsive Hero */
+@media (max-width: 900px) {
+    .hero-section, .hero-image {
+        min-height: 220px;
+        height: 30vh;
+        max-height: 40vh;
+    }
+    .hero-caption {
+        font-size: 1.2rem;
+        padding: 16px 10px;
+    }
+}
+
+/* =========================
+   BENCHMARKS SECTION
+   ========================= */
+.benchmarks {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 1200px;
+    margin: -20px auto 25px auto;
+    padding: 15px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.benchmarks > div {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    gap: 10px;
+}
+.bmnumbers {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+    line-height: 1.2;
+}
+.bmtext {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* =========================
+   MAIN CONTENT (About Us)
+   ========================= */
+main {
+    margin-top: 20px;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.left-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+.content-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+.right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+}
+.right-content p {
+    margin: 0;
+}
+.feature-item-1, .feature-item-2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.feature-item-1 img, .feature-item-2 img {
+    width: 20px;
+    height: 20px;
+}
+.feature-item-1 p, .feature-item-2 p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* =========================
+   FEATURED DESTINATIONS
+   ========================= */
+.featured-destinations {
+    width: calc(100% - 80px);
+    margin: 20px auto;
+    padding: 20px 40px 40px 40px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: center;
+    max-width: 1200px;
+}
+.featured-destinations-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+.feature-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    justify-content: center;
+    padding-top: 25px;
+}
+.feature-card {
+    max-width: 350px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.feature-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.feature-content {
+    padding: 16px;
+    text-align: left;
+}
+.feature-title {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    color: #333;
+}
+.feature-desc {
+    text-align: left;
+    margin: 12px 0;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+.feature-action {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #000000;
+    font-weight: 600;
+    margin-top: 12px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px solid #ffd700;
+    transition: all 0.3s ease;
+    background: #ffd700;
+}
+.feature-action:hover {
+    color: #000000;
+    background: #f1cd01;
+}
+.feature-action svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+.feature-action:hover svg {
+    transform: translateX(5px);
+}
+.feature-action:hover circle,
+.feature-action:hover path {
+    stroke: #000000;
+    fill: #f1cd01;
+}
+
+/* =========================
+   SPONSOR SECTION
+   ========================= */
+.sponsor-section {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffd700;
+    color: #000000;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sponsor-section-title {
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+}
+.sponsor-logos {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 10px;
+    width: 100%;
+}
+.sponsor-logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    min-width: 120px;
+}
+.sponsor-logo:hover {
+    opacity: 1;
+}
+.sponsor-logo-1 { font-family: 'Arial Black', sans-serif; font-style: italic; }
+.sponsor-logo-2 { font-family: 'Georgia', serif; font-weight: bold; }
+.sponsor-logo-3 { font-family: 'Verdana', sans-serif; letter-spacing: 1px; }
+.sponsor-logo-4 { font-family: 'Trebuchet MS', sans-serif; text-transform: uppercase; }
+.sponsor-logo-5 { font-family: 'Courier New', monospace; font-weight: bold; }
+.sponsor-logo-6 { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; letter-spacing: -1px; font-style: italic; }
+
+/* =========================
+   MORE PLACES SECTION
+   ========================= */
+.more-places {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('Compass_Site/Assets/images/worldmap.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(244, 244, 244, 0.9);
+}
+.more-places-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    margin: 0 0 20px 0;
+}
+.more-places-desc {
+    font-size: 0.9rem;
+    color: #000000;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+.more-card {
+    width: 300px;
+    position: relative;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.more-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.more-card__img {
+    position: relative;
+    background: #ffd700;
+    background: linear-gradient(315deg, #ffd700, #f1cd01);
+    width: 100%;
+    height: 175px;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+.more-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.more-card__span {
+    cursor: pointer;
+    font-size: 11px;
+    position: absolute;
+    background-color: white;
+    top: 10px;
+    left: 10px;
+    padding: 3px 7px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-in;
+    user-select: none;
+    border-radius: 4px;
+    z-index: 1;
+}
+.more-card-int__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+}
+.more-excerpt {
+    text-align: left;
+    color: #000000;
+    font-size: 14px;
+}
+.more-card-int__button {
+    cursor: pointer;
+    margin: 20px 0 0 0;
+    padding: 10px 20px;
+    width: 100%;
+    background-color: #ffd700;
+    border: 2px solid #ffd700;
+    color: #000000;
+    position: relative;
+    transition: all 0.3s ease;
+    user-select: none;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.more-card-int__button:hover {
+    background: #f1cd01;
+    border-color: #f1cd01;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.more-card-int__button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.more-card-int__button::after {
+    content: '→';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+.more-card-int__button:hover::after {
+    transform: translateX(4px);
+}
+.more-card a {
+    text-decoration: none;
+    color: inherit;
+}
+.more-card a:hover {
+    text-decoration: none;
+}
+
+/* =========================
+   WHY CHOOSE US SECTION
+   ========================= */
+.why-us {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px 10px 10px;
+    text-align: center;
+}
+.why-us-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 40px;
+}
+.why-us-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.why-us-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: #ffd700;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.why-us-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.why-us-item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+}
+.why-us-item-content {
+    flex: 1;
+}
+.why-us-item-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #000000;
+}
+.why-us-item p {
+    margin: 0;
+    color: #000000;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+/* Responsive Why Us */
+@media (max-width: 1024px) {
+    .why-us-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .why-us-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   DISCOUNT SECTION (Countdown)
+   ========================= */
+.Discount-section {
+    max-width: 100%;
+    margin: 60px 0 20px 0;
+    padding: 0;
+}
+.Discount-content {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0;
+    height: 300px;
+    max-width: 100%;
+}
+.Discount-text {
+    flex: 0 0 50%;
+    text-align: center;
+    background-color: #1a237e;
+    padding: 30px;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Discount-image {
+    flex: 0 0 50%;
+    height: 100%;
+}
+.Discount-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+}
+.Discount-section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.Discount-section-desc {
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.countdown-timer {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 80px;
+    margin-top: 10px;
+}
+.timer-item span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-align: center;
+}
+.timer-label {
+    font-size: 0.9rem;
+    color: #ffd700;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* =========================
+   CUSTOMER REVIEWS SECTION
+   ========================= */
+.customer-reviews {
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
+}
+.customer-reviews-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 40px;
+}
+.customer-reviews-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.customer-review {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: left;
+}
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.reviewer-info {
+    flex: 1;
+}
+.reviewer-name {
+    font-weight: bold;
+    color: #1a237e;
+    margin: 0;
+    font-size: 1.1rem;
+}
+.review-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+.star-rating {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+.customer-review-text {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+.review-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+.review-icon {
+    width: 20px;
+    height: 20px;
+    color: #1a237e;
+}
+.review-location {
+    color: #000000;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   FINAL INFO SECTION (Contact & Social)
+   ========================= */
+.final-info {
+    background-color: #1a237e;
+    padding: 40px 0;
+    color: #ffffff;
+}
+.final-info-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    gap: 200px;
+}
+.contact-info {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+.contact-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.text-abv-num {
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+.number-phone {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.email-info {
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    margin: 0 auto;
+}
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.social-icons {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.social-icon {
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+.social-icon:hover {
+    color: #ffd700;
+}
+.follow-text {
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   FOOTER SECTION
+   ========================= */
+.footer {
+    background-color: #000000 !important;
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 0 30px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.footer-section {
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.footer-section h3 {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.footer-section p {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    text-align: left;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li {
+    margin-bottom: 12px;
+}
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+.footer-links a:hover {
+    color: #ffd700;
+}
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: left;
+}
+.footer-contact svg {
+    width: 20px;
+    height: 20px;
+    color: #ffd700;
+}
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.footer-social a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+.footer-social a:hover {
+    color: #ffd700;
+}
+.footer-social svg {
+    width: 24px;
+    height: 24px;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+.footer-bottom p {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   NEWSLETTER FORM (Footer)
+   ========================= */
+input[type="email"] {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #333;
+}
+input[type="email"]::placeholder {
+    color: #888;
+}
+input[type="email"]:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+/* =========================
+   ANIMATIONS (if needed)
+   ========================= */
+@keyframes effect_one {
+    0% { transform: translateX(-99%);}
+    25% { transform: translateX(-90%);}
+    50% { transform: translateX(-80%);}
+    75% { transform: translateX(-95%);}
+    100% { transform: translateX(-99%);}
+}
+@keyframes effect_two {
+    to { transform: translateX(-1%);}
+    from { transform: translateX(-99%);}
+}
+    </style>
+</head>
+<div class="topinfo">
+    <div class="datetime-container">
+        <p class="topinfo-text">+639 081 234 5678 | compass@gmail.com</p>
+        <span id="current-time"></span>
+    </div>
+</div>
+<body onLoad="MM_preloadImages('Compass_Site/Assets/images/MenuTripPlanner_on.gif','Compass_Site/Assets/images/MenuDestinations_on.gif','Compass_Site/Assets/images/MenuTravelLogs_on.gif')">
+    <div class="navbar-bg">
+        <!-- This is the navigation bar -->
+        <nav>
+            <div class="nav-left">
+                <a href="CompassHome.htm">
+                    <div class="logo-container">
+                        <img src="Compass_Site/Assets/images/compass_logo.gif" alt="Compass Logo" class="logo">
+                    </div>
+                </a>
+            </div>
+            <!-- Search Bar Start -->
+            <div class="nav-search" style="flex:1; display:flex; justify-content:center; align-items:center;">
+                <input 
+                    type="text" 
+                    id="destinationSearch" 
+                    placeholder="Search destinations..." 
+                    style="padding: 8px 16px; border-radius: 20px; border: 1px solid #ccc; width: 250px; font-size: 1rem;"
+                    onkeyup="filterDestinations()"
+                    autocomplete="off"
+                >
+                <div id="searchResults" style="position:absolute; top:55px; left:50%; transform:translateX(-50%); background:#fff; border:1px solid #ccc; border-radius:8px; width:250px; max-height:220px; overflow-y:auto; z-index:2000; display:none;"></div>
+            </div>
+            <!-- Search Bar End -->
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-right">
+                <a href="TripPlanner.html">Trip Planner</a>
+                <a href="Destinations.htm">Destinations</a>
+                <a href="Travelog.htm">Travel Logs</a>
+                <a href="profile.php">Profile</a>
+            </div>
+        </nav>
+    </div>
+    <div class="hero-section">
+        <img src="Compass_Site/Assets/images/213.jpg" alt="Surfing Destination" class="hero-image">
+        <div class="hero-caption-smalltxt">ELEVATE YOUR TRAVEL JOURNEY</div>
+        <div class="hero-caption">Experience  Perfect Travel<br>Experience here in Compass!</div>
+        <a href="TripPlanner.html">
+        <button class="hero-button">
+            <span>Book A Trip Now</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 74 74"
+              height="34"
+              width="34"
+            >
+              <circle stroke-width="3" stroke="black" r="35.5" cy="37" cx="37"></circle>
+              <path
+                fill="black"
+                d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"
+              ></path>
+            </svg>
+          </button> 
+          </a>
+    </div>
+
+    <div class="benchmarks">
+        <div>
+            <p class="bmnumbers">30+</p>
+            <p class="bmtext">Attractie tours<br>and destinations</p>
+        </div>
+        <div>
+            <p class="bmnumbers">400k+</p>
+            <p class="bmtext">Clients from<br>around the world</p>
+        </div>
+        <div>
+            <p class="bmnumbers">5</p>
+            <p class="bmtext">on trivago</p>
+        </div>
+        <div>
+            <p class="bmnumbers">99%+</p>
+            <p class="bmtext">Our clients<br>are satisfied</p>
+        </div>
+    </div>
+
+    <!-- This is the main content -->
+
+    <main>
+        <div class="left-content">
+            <img src="Compass_Site/Assets/images/aboutuspic.jpg" alt="Adventure Image" class="content-image">
+        </div>
+        <div class="right-content">
+            <p style="text-align: left; font-weight: bold; font-size: 20px; color: #f1cd01;">ABOUT US</p>    
+            <p style="text-align: left; font-weight: bold; font-size: 25px;">Welcome to Compass!</p>
+            <p style="text-align: left;">We currently offer over 1,500 thrilling extreme adventures tailored for adrenaline seekers of all kinds. Whether you're interested in surfing massive 400-foot waves in remote ocean locations or testing your skills by fishing for piranha deep in the Amazon rainforest, we have an experience for every level of thrill-seeker. Browse our extensive list of activities to find the perfect adventure that pushes your limits and creates unforgettable memories.</p>
+            <div class="feature-item-1">
+                <img src="Compass_Site/Assets/images/checked.png" alt="Check Icon">
+                <p style="text-align: left;">Great travel experiences</p>
+                <img src="Compass_Site/Assets/images/tag.png" alt="Check Icon">
+                <p style="text-align: left;">Competitive pricing offers</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- This is the featured destinations -->
+
+    <div class="featured-destinations">
+        <p class="featured-destinations-title">Featured Destinations</p>
+        <div class="feature-cards-grid">
+            <div class="feature-card">
+                <div class="feature-image">
+                    <img src="Compass_Site/Assets/images/yosemiterocknew.jpeg" alt="Yosemite">
+                </div>
+                <div class="feature-content">
+                        <span class="feature-title">Yosemite National Park</span>
+                    <p class="feature-desc">
+                        Experts only. Sign up now to scale El Captain and Halfdome. Bring your own gear. We'll provide food and a one hour video on scalling these amazing rocks.
+                    </p>
+                    <a class="feature-action" href="#">
+                        Find out more
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
+                            <circle stroke-width="3" stroke="currentColor" r="35.5" cy="37" cx="37"></circle>
+                            <path fill="currentColor" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image">
+                    <img src="Compass_Site/Assets/images/flyfishinghome.jpg" alt="Fly Fishing">
+                </div>
+                <div class="feature-content">
+                        <span class="feature-title">Fly Fishing In the Rocky mountains</span>
+                    <p class="feature-desc">
+                        You'll get a seasoned guide and lots of dehydrated ravioli. Bring your own gear. We'll provide the food and a one hour video on fly fishing in the Rocky mountains.
+                    </p>
+                    <a class="feature-action" href="#">
+                        Find out more
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
+                            <circle stroke-width="3" stroke="currentColor" r="35.5" cy="37" cx="37"></circle>
+                            <path fill="currentColor" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image">
+                    <img src="Compass_Site/Assets/images/pugetsound.jpg" alt="Puget Sound">
+                </div>
+                <div class="feature-content">
+                        <span class="feature-title">Puget Sound Kayaking</span>
+                    <p class="feature-desc">
+                        One week of ocean kayaking in the Puget Sound. Bring your own gear. We'll provide meals and a one hour video on kayaking in the Puget Sound area.
+                    </p>
+                    <a class="feature-action" href="#">
+                        Find out more
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
+                            <circle stroke-width="3" stroke="currentColor" r="35.5" cy="37" cx="37"></circle>
+                            <path fill="currentColor" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is the sponsor section -->
+
+    <div class="sponsor-section">
+        <p class="sponsor-section-title">We are partnered with 20+ companies</p>
+        <div class="sponsor-logos">
+            <span class="sponsor-logo sponsor-logo-1">ADVENTURE PRO</span>
+            <span class="sponsor-logo sponsor-logo-2">TrekMaster</span>
+            <span class="sponsor-logo sponsor-logo-3">EXPLORE+</span>
+            <span class="sponsor-logo sponsor-logo-4">WILDERNESS</span>
+            <span class="sponsor-logo sponsor-logo-5">TRAVEL TECH</span>
+            <span class="sponsor-logo sponsor-logo-6">Vista Travel</span>
+        </div>
+    </div>
+
+    <!-- More Places Section - Showcases additional unique experiences -->
+    <div class="more-places">
+        <!-- Main title for the section -->
+        <p class="more-places-title">Focus on more Unique Experiences</p>
+        <!-- Description text explaining the range of experiences offered -->
+        <p class="more-places-desc">We offer a wide range of unique and thrilling experiences. From surfing the largest waves in the world to hiking the highest peaks of the world, we have something for everyone. Browse our extensive list of activities to find the perfect adventure that pushes your limits and creates unforgettable memories.</p>
+        <!-- Cards container -->
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+            <!-- First Card -->
+            <div class="more-card">
+                <div class="more-card__img">
+                    <img src="Compass_Site/Assets/images/calisurf.jpg" alt="California Surf">
+                    <span class="more-card__span">Beach</span>
+                </div>
+                <div class="more-card-int">
+                    <p class="more-card-int__title">California Surf Safari</p>
+                    <p class="more-excerpt">Be ready to go on a moment's notice. We will call you when the surf is pumping and fly you out for five mornings of hurricane inspired summertime swells.</p>
+                    <a href="CaliSurf.html"><button class="more-card-int__button">More for this activity</button></a>
+                </div>
+            </div>
+
+            <!-- Second Card -->
+            <div class="more-card">
+                <div class="more-card__img">
+                    <img src="Compass_Site/Assets/images/newmtnbike.jpg" alt="New Zealand Biking">
+                    <span class="more-card__span">Mountain</span>
+                </div>
+                <div class="more-card-int">
+                    <p class="more-card-int__title">New Zealand Biking</p>
+                    <p class="more-excerpt">Conquer the Peaks! Experience Mountain Biking Treks Through Rugged Terrain. The karapoti Trail, home to the Trek Karapoti Classic twists around the Akatarawa Range.</p>
+                    <a href="MtnBiking.html"><button class="more-card-int__button">More for this activity</button></a>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="more-card">
+                <div class="more-card__img">
+                    <img src="Compass_Site/Assets/images/yosemiterocknew.jpeg" alt="Yosemite Rock Climbing">
+                    <span class="more-card__span">Mountain</span>
+                </div>
+                <div class="more-card-int">
+                    <p class="more-card-int__title">Wyoming Rock Climbing</p>
+                    <p class="more-excerpt">Push Your Limits; Embrace the Vertical Challenge Wyoming's climbing Mecca, Devil's Tower, stands at 865 feet and offers the beginner or the expert climber a challenge.</p>
+                    <a href="RockClimb.html"><button class="more-card-int__button">More for this activity</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="why-us">
+        <p class="why-us-title">Why Choose Us</p>
+        <div class="why-us-content">
+            <div class="why-us-item">
+                <img src="Compass_Site/Assets/images/plane.png" alt="Plane Icon">
+                <div class="why-us-item-content">
+                    <p class="why-us-item-title">Wide Range of Unique Experiences</p>
+                    <p>We offer a wide range of unique and thrilling experiences.</p>
+                </div>
+            </div>
+            <div class="why-us-item">
+                <img src="Compass_Site/Assets/images/professional.png" alt="Professional Icon">
+                <div class="why-us-item-content">
+                    <p class="why-us-item-title">Expert Guides</p>
+                    <p>Our experienced guides ensure safe and memorable adventures.</p>
+                </div>
+            </div>
+            <div class="why-us-item">
+                <img src="Compass_Site/Assets/images/value.png" alt="Value Icon">
+                <div class="why-us-item-content">
+                    <p class="why-us-item-title">Best Value Packages</p>
+                    <p>Competitive pricing with all-inclusive adventure packages.</p>
+                </div>
+            </div>
+            <div class="why-us-item">
+                <img src="Compass_Site/Assets/images/technical-support.png" alt="Technical Support Icon">
+                <div class="why-us-item-content">
+                    <p class="why-us-item-title">24/7 Support</p>
+                    <p>Round-the-clock customer support for all your needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Discount-section">
+        <div class="Discount-content">
+            <div class="Discount-image">
+                <img src="Compass_Site/Assets/images/salemtncimb.jpg" alt="Mountain Climbing">
+            </div>
+            <div class="Discount-text">
+                <p class="Discount-section-title">Get 20% off your next adventure!</p>
+                <p class="Discount-section-desc">It is limited time only.</p>
+                <div class="countdown-timer">
+                    <div class="timer-item">
+                        <span id="days">00</span>
+                        <span class="timer-label">Days</span>
+                    </div>
+                    <div class="timer-item">
+                        <span id="hours">00</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <div class="timer-item">
+                        <span id="minutes">00</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                    <div class="timer-item">
+                        <span id="seconds">00</span>
+                        <span class="timer-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer-reviews">
+        <p class="customer-reviews-title">Customer Reviews</p>
+        <div class="customer-reviews-content">
+            <div class="customer-review">
+                <div class="review-header">
+                    <img src="Compass_Site/Assets/images/kratospfp.jpg" alt="Kratos Yu" class="reviewer-avatar">
+                    <div class="reviewer-info">
+                        <p class="reviewer-name">Kratos Yu</p>
+                        <p class="review-date">March 15, 2024</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    ★★★★★
+                </div>
+                <p class="customer-review-text">"The Yosemite rock climbing experience was absolutely incredible! The guides were professional and made sure we were safe while pushing our limits. The views from the top were breathtaking. Can't wait to book my next adventure with Compass!"</p>
+                <div class="review-footer">
+                    <svg class="review-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span class="review-location">Yosemite National Park, USA</span>
+                </div>
+            </div>
+            <div class="customer-review">
+                <div class="review-header">
+                    <img src="Compass_Site/Assets/images/menpfp.png" alt="Michael Chen" class="reviewer-avatar">
+                    <div class="reviewer-info">
+                        <p class="reviewer-name">Michael Chen</p>
+                        <p class="review-date">March 10, 2024</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    ★★★★★
+                </div>
+                <p class="customer-review-text">"I had the most amazing time at the Buscalan Tattoo Village. Getting a traditional hand-tapped tattoo from Whang-Od was a once-in-a-lifetime experience. The cultural immersion and the beautiful journey to the village made it even more special. Highly recommend!"</p>
+                <div class="review-footer">
+                    <svg class="review-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span class="review-location">Buscalan, Kalinga, Philippines</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-info">
+        <div class="final-info-content">
+            <div class="contact-info">
+                <div class="contact-text-group">
+                    <div class="text-abv-num">Don't wait any longer, Contact us</div>
+                    <div class="number-phone">+63 917 123 4567</div>
+                </div>
+                <div class="email-info">compass@gmail.com</div>
+            </div>
+            <div class="social-media">
+                <span class="follow-text">Follow us</span>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" style="background-color: #000000 !important;">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Compass</h3>
+                <p>Your trusted partner in creating unforgettable travel experiences. We specialize in adventure tourism and unique cultural experiences worldwide.</p>
+                <div class="footer-social">
+                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></a>
+                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                        </svg></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="TripPlanner.htm">Trip Planner</a></li>
+                    <li><a href="Destinations.htm">Destinations</a></li>
+                    <li><a href="Travelog.htm">Travel Logs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="footer-contact">
+                    <p>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        +63 917 123 4567
+                    </p>
+                    <p>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        compass@gmail.com
+                    </p>
+                    <p>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        123 Adventure Street, Manila, Philippines
+                    </p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest travel updates and exclusive offers.</p>
+                <form style="margin-top: 15px;">
+                    <input type="email" placeholder="Enter your email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: none; border-radius: 4px;">
+                    <button type="submit" style="width: 100%; padding: 10px; background-color: #ffd700; color: #1a237e; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Subscribe</button>
+                </form>
+            </div>
+               </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Compass Travel. All rights reserved.</p>
+               </div>
+    </div>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-right').classList.toggle('active');
+        });
+
+        function updateDateTime() {
+            const now = new Date();
+           
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('current-time').textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Set the date we're counting down to (24 hours from now)
+        const countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+
+        // Update the countdown every 1 second
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+            // If the countdown is finished
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+
+        // List of destinations (add more as needed)
+const destinations = [
+    { name: "Yosemite National Park", url: "Yosemite.html" },
+    { name: "Fly Fishing In the Rocky mountains", url: "FlyFishing.html" },
+    { name: "Puget Sound Kayaking", url: "PugetSound.html" },
+    { name: "California Surf Safari", url: "CaliSurf.html" },
+    { name: "New Zealand Biking", url: "MtnBiking.html" },
+    { name: "Wyoming Rock Climbing", url: "RockClimb.html" },
+    { name: "Trip Planner", url: "TripPlanner.html" },
+    { name: "Destinations", url: "Destinations.htm" },
+    { name: "Travel Logs", url: "Travelog.htm" }
+];
+
+function filterDestinations() {
+    const input = document.getElementById('destinationSearch');
+    const filter = input.value.toLowerCase();
+    const resultsDiv = document.getElementById('searchResults');
+    resultsDiv.innerHTML = '';
+    if (!filter) {
+        resultsDiv.style.display = 'none';
+        return;
+    }
+    const filtered = destinations.filter(dest => dest.name.toLowerCase().includes(filter));
+    if (filtered.length === 0) {
+        resultsDiv.innerHTML = '<div style="padding:10px; color:#888;">No results found</div>';
+    } else {
+        filtered.forEach(dest => {
+            const link = document.createElement('a');
+            link.href = dest.url;
+            link.textContent = dest.name;
+            link.style.display = 'block';
+            link.style.padding = '10px 16px';
+            link.style.color = '#23247e';
+            link.style.textDecoration = 'none';
+            link.style.borderBottom = '1px solid #eee';
+            link.onmouseover = () => link.style.background = '#ffd70022';
+            link.onmouseout = () => link.style.background = '';
+            resultsDiv.appendChild(link);
+        });
+    }
+    resultsDiv.style.display = 'block';
+}
+
+// Hide results when clicking outside
+document.addEventListener('click', function(e) {
+    const search = document.getElementById('destinationSearch');
+    const results = document.getElementById('searchResults');
+    if (!search.contains(e.target) && !results.contains(e.target)) {
+        results.style.display = 'none';
+    }
+});
+    </script>
+</body>
+</html>
